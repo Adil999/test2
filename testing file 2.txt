@@ -1,0 +1,20 @@
+all : exe
+
+object = 6_4.o 6_5.o 6_6.o restart.o
+c = 6_4.c 6_5.c 6_6.c restart.c
+
+exe : $(object)
+
+restart.o : restart.c restart.h
+			gcc -c restart.c
+		
+6_4.o : 6_4.c
+		gcc -c 6_4.c
+		
+6_5.o : 6_5.c restart.h
+		gcc -c 6_5.c
+
+6_6.o : 6_6.c restart.h
+		gcc -c 6_6.c
+		
+clean : rm -rf *.o exe
